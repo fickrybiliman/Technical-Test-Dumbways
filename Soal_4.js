@@ -9,14 +9,20 @@ let bayar = 0;
 let diskon = 0;
 let kembalian = 0;
 
+function DumbWaysAsik() {
+}
+
+function DumbWaysMantap() {
+}
+
 function hitungVoucher(voucher, belanja) {
-   if (voucher === 'DumbWaysAsik' && belanja >= 20000) {
+   if (voucher === DumbWaysAsik && belanja >= 20000) {
       diskon = belanja * 0.5 > 20000 ? 20000 : belanja * 0.5;
       bayar = belanja - diskon;
       kembalian = belanja - bayar;
    } 
 
-   if (voucher === 'DumbWaysMantap' && belanja >= 50000) {
+   if (voucher === DumbWaysMantap && belanja >= 50000) {
       diskon = belanja * 0.3 > 40000 ? 40000 : belanja * 0.3;
       bayar = belanja - diskon;
       kembalian = belanja - bayar;
@@ -24,6 +30,6 @@ function hitungVoucher(voucher, belanja) {
    return `- Uang yang harus dibayar : ${bayar}\n- Diskon : ${diskon}\n- Kembalian : ${kembalian}`;
 }
 
-console.log(hitungVoucher('DumbWaysAsik', 30000));
+console.log(hitungVoucher(DumbWaysAsik, 30000));
 console.log('======')
-console.log(hitungVoucher('DumbWaysMantap', 60000));
+console.log(hitungVoucher(DumbWaysMantap, 90000));
