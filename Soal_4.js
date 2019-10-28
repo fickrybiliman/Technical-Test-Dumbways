@@ -9,10 +9,10 @@ let bayar = 0;
 let diskon = 0;
 let kembalian = 0;
 
-function DumbWaysAsik() {
+let DumbWaysAsik = function() {
 }
 
-function DumbWaysMantap() {
+let DumbWaysMantap = function() {
 }
 
 function hitungVoucher(voucher, belanja) {
