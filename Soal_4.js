@@ -1,35 +1,38 @@
-// -	Uang yang harus dibayar : 15000 
-// -  Diskon : 15000
-// -  Kembalian  : 15000
+let result = '';
+let harga = 0;
 
-// DumbWaysAsik, potongan 50%, minimal uang belanja 20000, Maksimal diskon 20000
-// DumbWaysMantap, potongan 30%, minimal uang belanja 50000, maksimal diskon 40000
+function A() {
+   harga = 3000;
+   return harga;
+};
 
-let bayar = 0;
-let diskon = 0;
-let kembalian = 0;
+function B() {
+   harga = 3500;
+   return harga;
+};
 
-let DumbWaysAsik = function() {
+function C() {
+   harga = 5000;
+   return harga;
+};
+
+function hitungBarang(kualitas, quantity) {
+   if (kualitas === A) {
+      if (quantity > 10) {
+         result += `- Total Harga Barang : ${A() * quantity}\n- Potongan : ${500 * quantity} \n- Total yang harus dibayar : ${(A() * quantity) - (500 * quantity)}`
+      } else {
+         result += `- Total Harga Barang : ${A() * quantity}\n- Potongan : 0\n- Total yang harus dibayar : ${(A() * quantity) - 0}`
+      }
+   } else if (kualitas === B) {
+      if (quantity > 5) {
+         result += `- Total Harga Barang : ${B() * quantity}\n- Potongan : ${(B() * quantity) * 0.5} \n- Total yang harus dibayar : ${(B() * quantity) - ((B() * quantity) * 0.5)}`
+      } else {
+         result += `- Total Harga Barang : ${B() * quantity}\n- Potongan : 0\n- Total yang harus dibayar : ${(B() * quantity) - 0}`
+      }
+   } else if (kualitas === C) {
+         result += `- Total Harga Barang : ${C() * quantity}\n- Potongan : 0\n- Total yang harus dibayar : ${(C() * quantity) - 0}`
+      }
+   return result;
 }
 
-let DumbWaysMantap = function() {
-}
-
-function hitungVoucher(voucher, belanja) {
-   if (voucher === DumbWaysAsik && belanja >= 20000) {
-      diskon = belanja * 0.5 > 20000 ? 20000 : belanja * 0.5;
-      bayar = belanja - diskon;
-      kembalian = belanja - bayar;
-   } 
-
-   if (voucher === DumbWaysMantap && belanja >= 50000) {
-      diskon = belanja * 0.3 > 40000 ? 40000 : belanja * 0.3;
-      bayar = belanja - diskon;
-      kembalian = belanja - bayar;
-   }
-   return `- Uang yang harus dibayar : ${bayar}\n- Diskon : ${diskon}\n- Kembalian : ${kembalian}`;
-}
-
-console.log(hitungVoucher(DumbWaysAsik, 30000));
-console.log('======')
-console.log(hitungVoucher(DumbWaysMantap, 90000));
+console.log(hitungBarang(C, 10));

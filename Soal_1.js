@@ -1,17 +1,14 @@
-let dataKey = ['dumb','ways','the','best'];
-let word = 'dumbways';
-let result = ''
+let input = [1, 2, 3, 4, 5];
+let resultArray = [];
+let result = '';
 
-function check(data, word) {
-   for (let i = 0; i < data.length; i++) {
-      if (i === data.length - 1) {
-         result += `${data[i]} => ${word.includes(data[i])}`;
-      } else {
-         result += `${data[i]} => ${word.includes(data[i])}\n`;
-      }
+function totalElement(arr) {
+   for (let i = 0; i < arr.length; i++) {
+      resultArray.push(arr.reduce((acc, cur) => acc + cur) - arr[i]);
+      result += `angka ${arr[i]} = ${arr.reduce((acc, cur) => acc + cur) - arr[i]} \n`
    }
-   // console.log(`${data.map(x => x + ' => ' + word.includes(x) + '\n')}`)
+   result += `Maka angka terkecilnya dan terbesarnya adalah ${Math.min(...resultArray)} dan ${Math.max(...resultArray)}`
    return result;
 }
 
-console.log(check(dataKey, word));
+console.log(totalElement(input));
